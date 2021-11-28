@@ -40,29 +40,36 @@ class _SplashScreenState extends State<SplashScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Image(
+            height: MediaQuery.of(context).size.height * 0.80,
+            width: MediaQuery.of(context).size.width * 0.80,
             image: AssetImage('icons/app_icon.png'),
             fit: BoxFit.contain,
           ),
-          AnimatedTextKit(
-            animatedTexts: [
-              ColorizeAnimatedText(
-                'Covid-19 Tracker',
-                textAlign: TextAlign.center,
-                textStyle: GoogleFonts.getFont(
-                  'Kaushan Script',
-                  fontSize: 45.0,
-                  letterSpacing: 1.2,
-                  color: Colors.pinkAccent,
-                  fontWeight: FontWeight.w700,
+          Flexible(
+            child: AnimatedTextKit(
+              animatedTexts: [
+                ColorizeAnimatedText(
+                  'Covid-19 Tracker',
+                  textAlign: TextAlign.center,
+                  textStyle: GoogleFonts.getFont(
+                    'Kaushan Script',
+                    fontSize: 45.0,
+                    letterSpacing: 1.2,
+                    color: Colors.pinkAccent,
+                    fontWeight: FontWeight.w700,
+                  ),
+                  colors: colorizeColors,
                 ),
-                colors: colorizeColors,
-              ),
-            ],
-            repeatForever: true,
-            pause: const Duration(milliseconds: 0),
+              ],
+              repeatForever: true,
+              pause: const Duration(milliseconds: 0),
+            ),
           ),
+          SizedBox(height: 20.0),
         ],
       ),
     );
